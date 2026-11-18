@@ -78,3 +78,15 @@ TEST(PasswordTest, mixed_case_lower_with_digits_and_symbols)
 	Password my_password;
 	ASSERT_FALSE(my_password.has_mixed_case("pass123!"));
 }
+
+TEST(PasswordTest, leading_repeats_then_different)
+{
+	Password my_password;
+	ASSERT_EQ(2, my_password.count_leading_characters("aaB"));
+}
+
+TEST(PasswordTest, leading_repeats_whole_string)
+{
+	Password my_password;
+	ASSERT_EQ(3, my_password.count_leading_characters("zzz"));
+}
